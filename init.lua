@@ -405,6 +405,22 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
  -- Binding for neo tree
 vim.keymap.set('n', '<leader>efl', '<Cmd>Neotree filesystem reveal left<cr>', { desc = 'Open filesystem left' })
+vim.keymap.set('n', '<leader>efr', '<Cmd>Neotree filesystem reveal right<cr>', { desc = 'Open filesystem right' })
+vim.keymap.set('n', '<leader>eft', '<Cmd>Neotree filesystem reveal top<cr>', { desc = 'Open filesystem top' })
+vim.keymap.set('n', '<leader>efb', '<Cmd>Neotree filesystem reveal bottom<cr>', { desc = 'Open filesystem bottom' })
+vim.keymap.set('n', '<leader>eff', '<Cmd>Neotree filesystem reveal float<cr>', { desc = 'Open filesystem float' })
+
+vim.keymap.set('n', '<leader>ebl', '<Cmd>Neotree buffers reveal left<cr>', { desc = 'Open buffers left' })
+vim.keymap.set('n', '<leader>ebr', '<Cmd>Neotree buffers reveal right<cr>', { desc = 'Open buffers right' })
+vim.keymap.set('n', '<leader>ebt', '<Cmd>Neotree buffers reveal top<cr>', { desc = 'Open buffers top' })
+vim.keymap.set('n', '<leader>ebb', '<Cmd>Neotree buffers reveal bottom<cr>', { desc = 'Open buffers bottom' })
+vim.keymap.set('n', '<leader>ebf', '<Cmd>Neotree buffers reveal float<cr>', { desc = 'Open buffers float' })
+
+vim.keymap.set('n', '<leader>egl', '<Cmd>Neotree git_status reveal left<cr>', { desc = 'Open git status left' })
+vim.keymap.set('n', '<leader>egr', '<Cmd>Neotree git_status reveal right<cr>', { desc = 'Open git status right' })
+vim.keymap.set('n', '<leader>egt', '<Cmd>Neotree git_status reveal top<cr>', { desc = 'Open git status top' })
+vim.keymap.set('n', '<leader>egb', '<Cmd>Neotree git_status reveal bottom<cr>', { desc = 'Open git status bottom' })
+vim.keymap.set('n', '<leader>egf', '<Cmd>Neotree git_status reveal float<cr>', { desc = 'Open git status float' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
