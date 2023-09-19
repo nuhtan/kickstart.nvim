@@ -403,6 +403,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>ed', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+ -- Binding for neo tree
+vim.keymap.set('n', '<leader>efl', '<Cmd>Neotree filesystem reveal left<cr>', { desc = 'Open filesystem left' })
+
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -419,25 +422,6 @@ local on_attach = function(_, bufnr)
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
-
-  -- Binding for neo tree
-  nmap('<leader>efl', ':Neotree filesystem reveal left<cr>', 'Open filesystem left')
-  nmap('<leader>efr', ':Neotree filesystem reveal right<cr>', 'Open filesystem right')
-  nmap('<leader>eft', ':Neotree filesystem reveal top<cr>', 'Open filesystem top')
-  nmap('<leader>efb', ':Neotree filesystem reveal bottom<cr>', 'Open filesystem bottom')
-  nmap('<leader>eff', ':Neotree filesystem reveal float<cr>', 'Open filesystem floating')
-
-  nmap('<leader>ebl', ':Neotree buffers reveal left<cr>', 'Open buffers left')
-  nmap('<leader>ebr', ':Neotree buffers reveal right<cr>', 'Open buffers right')
-  nmap('<leader>ebt', ':Neotree buffers reveal top<cr>', 'Open buffers top')
-  nmap('<leader>ebb', ':Neotree buffers reveal bottom<cr>', 'Open buffers bottom')
-  nmap('<leader>ebf', ':Neotree buffers reveal float<cr>', 'Open buffers floating')
-
-  nmap('<leader>egl', ':Neotree git_status reveal left<cr>', 'Open git status left')
-  nmap('<leader>egr', ':Neotree git_status reveal right<cr>', 'Open git status right')
-  nmap('<leader>egt', ':Neotree git_status reveal top<cr>', 'Open git status top')
-  nmap('<leader>egb', ':Neotree git_status reveal bottom<cr>', 'Open git status bottom')
-  nmap('<leader>egf', ':Neotree git_status reveal float<cr>', 'Open git status floating')
   
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
