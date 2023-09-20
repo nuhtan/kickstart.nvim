@@ -160,7 +160,42 @@ require('lazy').setup({
       "MunifTanjim/nui.nvim",
     }
   },
-    
+
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+    require("project_nvim").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
+  },
+ 
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    }
+  },
+
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    },
+  },
+
+  {
+    'akinsho/toggleterm.nvim', version = "*", config = true
+  },
+
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -312,6 +347,8 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+pcall(require('telescope').load_extension, 'projects')
+
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -421,6 +458,12 @@ vim.keymap.set('n', '<leader>egr', '<Cmd>Neotree git_status reveal right<cr>', {
 vim.keymap.set('n', '<leader>egt', '<Cmd>Neotree git_status reveal top<cr>', { desc = 'Open git status top' })
 vim.keymap.set('n', '<leader>egb', '<Cmd>Neotree git_status reveal bottom<cr>', { desc = 'Open git status bottom' })
 vim.keymap.set('n', '<leader>egf', '<Cmd>Neotree git_status reveal float<cr>', { desc = 'Open git status float' })
+
+vim.keymap.set('n', '<leader>p', '<Cmd>Telescope projects<cr>', { desc = 'Open list of projects in Telescope' })
+
+vim.keymap.set('n', '<leader>ce', function() require("trouble").open() end, { desc = 'Opens a list of issues in current file?' })
+
+vim.keymap.set('n', '<leader>t', '<Cmd>ToggleTerm direction=float<cr>', { desc = 'Open floating terminal' })
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -534,6 +577,7 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-e>'] = cmp.mapping.abort(),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
