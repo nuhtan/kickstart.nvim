@@ -142,59 +142,7 @@ require('lazy').setup({
     },
   },
 
-  {  
-    -- Chosen Theme  
-    'Yazeed1s/oh-lucy.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme 'oh-lucy-evening'
-    end,
-  },
-    
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = { 
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  },
-
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-    require("project_nvim").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  end
-  },
- 
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    }
-  },
-
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    },
-  },
-
-  {
-    'akinsho/toggleterm.nvim', version = "*", config = true
-  },
+  
 
   {
     -- Set lualine as statusline
@@ -203,7 +151,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'moonfly',
         component_separators = '|',
         section_separators = '',
       },
@@ -266,7 +214,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -440,7 +388,9 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>ed', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
- -- Binding for neo tree
+
+-- CUSTOM KEYMAPS GO HERE
+-- Binding for neo tree
 vim.keymap.set('n', '<leader>efl', '<Cmd>Neotree filesystem reveal left<cr>', { desc = 'Open filesystem left' })
 vim.keymap.set('n', '<leader>efr', '<Cmd>Neotree filesystem reveal right<cr>', { desc = 'Open filesystem right' })
 vim.keymap.set('n', '<leader>eft', '<Cmd>Neotree filesystem reveal top<cr>', { desc = 'Open filesystem top' })
@@ -464,6 +414,8 @@ vim.keymap.set('n', '<leader>p', '<Cmd>Telescope projects<cr>', { desc = 'Open l
 vim.keymap.set('n', '<leader>ce', function() require("trouble").open() end, { desc = 'Opens a list of issues in current file?' })
 
 vim.keymap.set('n', '<leader>t', '<Cmd>ToggleTerm direction=float<cr>', { desc = 'Open floating terminal' })
+
+vim.keymap.set('n', '<leader>o', '<Cmd>SymbolsOutline<cr>', { desc = 'Opens an outline of the current file'})
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -565,6 +517,8 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
+
+
 
 cmp.setup {
   snippet = {
