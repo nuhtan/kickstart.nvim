@@ -20,9 +20,8 @@ return {
           "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
           "MunifTanjim/nui.nvim",
         }
-      },
-    
-      {
+    },
+    {
         "ahmedkhalf/project.nvim",
         config = function()
         require("project_nvim").setup {
@@ -31,9 +30,8 @@ return {
           -- refer to the configuration section below
         }
       end
-      },
-     
-      {
+    }, 
+    {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
@@ -41,9 +39,8 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         }
-      },
-    
-      {
+    },
+    {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
@@ -51,16 +48,26 @@ return {
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         },
-      },
-    
-      {
+    },
+    {
         'akinsho/toggleterm.nvim', version = "*", config = true
-      },
-      
-      {
+    },  
+    {
         'simrat39/symbols-outline.nvim',
         config = function()
         require("symbols-outline").setup {}
       end
-      }
+    },
+    {
+        'epwalsh/obsidian.nvim',
+        version = '*',
+        lazy = true,
+        ft = 'markdown',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        opts = {
+            workspaces = {}
+        }
+    },
 }
