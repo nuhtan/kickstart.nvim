@@ -337,6 +337,7 @@ require('lazy').setup({
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'project')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -791,17 +792,17 @@ require('lazy').setup({
   },
 
   {
-    'scottmckendry/cyberdream.nvim',
+    'EdenEast/nightfox.nvim',
     priority = 1000,
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('cyberdream').setup {
+      require('nightfox').setup {
         styles = {
           comments = { italic = false }, -- Disable italics in comments
         },
       }
 
-      vim.cmd.colorscheme 'cyberdream'
+      vim.cmd.colorscheme 'terafox'
     end,
   },
 
@@ -891,7 +892,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
