@@ -34,4 +34,24 @@ return {
       { ' ep', ":lua require('telescope').extensions.project.project{}<CR>", desc = 'Project Selector', silent = true },
     },
   },
+  {
+    'EdenEast/nightfox.nvim',
+  },
+  {
+    "rose-pine/neovim",
+	  name = "rose-pine",
+  },
+  {
+    "zaldih/themery.nvim",
+    lazy = false,
+    keys = {
+      { ' et', ':Themery', desc = 'Theme Selector', silent = true },
+    }
+    config = function()
+      require("themery").setup({
+        themes = {"terafox", "dayfox", 'rose-pine-main', 'rose-pine-moon', 'rose-pine-dawn'},
+        livePreview = true,
+      })
+    end
+  }
 }
